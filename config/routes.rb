@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/search', to: 'explore#search'
+  post '/search', to: 'explore#strava_search'
+  root 'explore#search'
 end
