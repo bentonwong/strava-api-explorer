@@ -1,0 +1,21 @@
+<h1>Search Strava</h1>
+<%= form_tag '/search' do %>
+  <%= label_tag :query %>
+  <%= text_field_tag :query %>
+  <%= submit_tag "Search Strava!" %>
+<% end %>
+<div>
+  <% if @error %>
+    <p><%= @error %></p>
+  <% elsif @results %>
+    <ul>
+    <% @results.each do |result| %>
+      <li>
+        Name: <%= repo["name"] %><br>
+        Link: <a href="<%= repo["html_url"] %>"><%= repo["html_url"] %></a><br>
+        Description: <%= repo["description"] %>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
